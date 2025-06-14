@@ -9,6 +9,17 @@
     graphic logo is a trademark of OpenMRS Inc.
 -->
 <dataset>
+    <concept concept_id="1000" retired="0" datatype_id="4" class_id="10" is_set="true" creator="1" date_created="2005-01-01 00:00:00.0" uuid="378e63b1-6c75-46ed-95e3-797b48ddc9f8" />
+    <concept_name concept_id="1000" name="Patient Health Profile" locale="en_GB" creator="1" date_created="2008-08-18 12:38:58.0" concept_name_id="1000" concept_name_type="FULLY_SPECIFIED" locale_preferred="1" voided="false" uuid="e893bb48-5f8a-4d69-b93d-9c0bca715982"/>
+    <concept_reference_source concept_source_id="1000" name="PATIENT_CODE" description="Patient health concept codes" creator="1" date_created="2005-01-01 00:00:00.0" retired="0" uuid="2b3c1ff8-768a-102f-83f4-12313b04a615" />
+
+    <concept concept_id="1001" retired="0" datatype_id="4" class_id="11" is_set="false" creator="1" date_created="2005-01-01 00:00:00.0" uuid="bbbf56f8-706e-41ef-95cd-57271567223a" />
+    <concept_name concept_id="1001" name="Blood Pressure" locale="en_GB" creator="1" date_created="2008-08-18 12:38:58.0" concept_name_id="1001" concept_name_type="FULLY_SPECIFIED" locale_preferred="1" voided="false" uuid="ee97a1c5-b7d8-498c-93af-f734e672d1ed"/>
+    <concept_set concept_set_id="1001" concept_id="1001" concept_set="1000" sort_weight="1.0" creator="1" date_created="2008-08-18 12:38:58.0" uuid="9a61d55c-5bfc-4494-b951-56adf85a31df"/>
+    <concept_reference_term concept_reference_term_id="1001" concept_source_id="1000" code="BP001" creator="1" date_created="2005-01-01 00:00:00.0" uuid="d471950d-0ef5-424c-b72a-3fff29af6b0b" retired="0"/>
+    <concept_reference_map concept_map_id="1001" concept_reference_term_id="1001" concept_map_type_id="1" creator="1" date_created="2005-01-01 00:00:00.0" concept_id="1001" uuid="2f7e0cd7-5866-4345-a24a-9c75cd3a876f" />
+
+
     <global_property property="patient.identifierRegex" property_value="^0*@SEARCH@([A-Z]+-[0-9])?$" uuid="c92cce6d-7e7d-4c53-a3c9-faaac17f8f8b"/>
     <location location_id="1" name="Test Location" creator="1" date_created="2005-01-01 00:00:00.0" retired="false" uuid="92ab9667-4686-49af-8be8-65a4b58fc49c"/>
     <patient_identifier_type patient_identifier_type_id="1" name="Test Identifier Type" description="Test description" creator="1" date_created="2005-01-01 00:00:00.0" required="false" retired="false" uuid="c5576187-9a67-43a7-9b7c-04db22851211"/>
@@ -51,7 +62,9 @@
     <person_attribute_type person_attribute_type_id="4" name="test string" format="java.lang.String" searchable="false" creator="1" date_created="2008-08-15 15:53:36.0" retired="false" uuid="3b4a243d-4508-4ecf-aa05-d1260a78e196" sort_weight="2"/>
     <person_attribute_type person_attribute_type_id="5" name="test boolean" format="java.lang.Boolean" searchable="false" creator="1" date_created="2008-08-15 15:53:36.0" retired="false" uuid="4973eeee-f193-4504-a67e-b8132a39c42a" sort_weight="2"/>
     <person_attribute_type person_attribute_type_id="6" name="test location" format="org.openmrs.Location" searchable="false" creator="1" date_created="2008-08-15 15:53:36.0" retired="false" uuid="560683ca-1261-441d-89e2-d11faeacd8c9" sort_weight="2"/>
+    <person_attribute_type person_attribute_type_id="7" name="test concept" format="org.openmrs.Concept" searchable="false" creator="1" date_created="2008-08-15 15:53:36.0" retired="false" uuid="c72289c1-30ed-4ac2-8027-c7af5e41968b" sort_weight="2"/>
     <person_attribute person_attribute_id="4" person_id="5" value="test@openmrs.org" person_attribute_type_id="4" creator="1" date_created="2008-08-18 12:25:57.0" voided="false" uuid="fbd82a27-56ec-46b4-8660-6442e832dc3e"/>
     <person_attribute person_attribute_id="5" person_id="5" value="true" person_attribute_type_id="5" creator="1" date_created="2008-08-18 12:25:57.0" voided="false" uuid="a55f316e-29dd-4ad5-b954-62ef93723658"/>
     <person_attribute person_attribute_id="6" person_id="5" value="1" person_attribute_type_id="6" creator="1" date_created="2008-08-18 12:25:57.0" voided="false" uuid="ad0f530d-aebf-4284-b7c1-c103986b1c2b"/>
+    <person_attribute person_attribute_id="7" person_id="5" value="1001" person_attribute_type_id="7" creator="1" date_created="2008-08-18 12:25:57.0" voided="false" uuid="2d48b851-a32c-4a20-ab1b-cadcb9c302ab"/>
 </dataset>
