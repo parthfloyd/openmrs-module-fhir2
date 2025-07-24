@@ -17,6 +17,7 @@ import java.util.Optional;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.Condition;
+import org.hl7.fhir.r4.model.Reference;
 import org.junit.Test;
 
 public class FhirUtilsTest {
@@ -36,12 +37,36 @@ public class FhirUtilsTest {
 	}
 	
 	@Test
-	public void getOpenmrsConditionType_shouldDefaultToCondition() {
+        public void getOpenmrsConditionType_shouldDefaultToCondition() {
 		Condition condition = new Condition();
 		
 		Optional<FhirUtils.OpenmrsConditionType> result = FhirUtils.getOpenmrsConditionType(condition);
 		
 		assertThat(result.isPresent(), equalTo(true));
-		assertThat(result.get(), equalTo(FhirUtils.OpenmrsConditionType.CONDITION));
-	}
+                assertThat(result.get(), equalTo(FhirUtils.OpenmrsConditionType.CONDITION));
+        }
+
+        @Test
+        public void referenceToType_shouldExtractType() {
+                Optional<String> result = FhirUtils.referenceToType("Patient/123");
+                assertThat(result.isPresent(), equalTo(true));
+                assertThat(result.get(), equalTo("Patient"));
+        }
+
+        @Test
+        public void referenceToId_shouldExtractId() {
+                Optional<String> result = FhirUtils.referenceToId("http://example.com/Condition/abc/_history/1");
+                assertThat(result.isPresent(), equalTo(true));
+                assertThat(result.get(), equalTo("abc"));
+        }
+
+        @Test
+        public void getReferenceType_shouldPreferTypeField() {
+                org.hl7.fhir.r4.model.Reference reference = new org.hl7.fhir.r4.model.Reference();
+                reference.setType("Observation");
+                Optional<String> result = FhirUtils.getReferenceType(reference);
+                assertThat(result.isPresent(), equalTo(true));
+                assertThat(result.get(), equalTo("Observation"));
+        }
+
 }
